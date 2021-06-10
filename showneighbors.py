@@ -79,12 +79,9 @@ class Ssh_tools:
         try:
             if self.connect():
                 entrada, salida, error = self.client.exec_command(comando,timeout=5)
-                #print("Ejecutando del comando: {}".format(comando))
-                #print("*************************************************************************************\n")
                 self.sincodificar = salida.read()
                 self.salida =  self.sincodificar.decode('utf8')
                 self.error = error.read().decode('utf8')
-                #print(self.salida)
                 if self.error:
                     print("Problema al ejecutar el comando: " + comando + "ERROR: " + self.error)
                     result_flag = False
@@ -99,7 +96,6 @@ class Ssh_tools:
             result_flag = False
         except Exception as e:
             print ("Error de conexion",e)
-            #self.client.close()
 
         return result_flag
 
