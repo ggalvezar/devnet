@@ -37,7 +37,6 @@ class Ssh_tools:
 
     def procesar_salida(self):
         cadena_array = self.salida.splitlines()
-#        cadena_array.pop()
         for i in [0,1,2]:
             del cadena_array[0]
         print("%-38s %-15s %-12s %-10s %-8s "%("Neighbor ID","Pri State","Up Time","Address", "Interface"))
